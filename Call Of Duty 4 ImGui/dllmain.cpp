@@ -36,13 +36,13 @@ namespace Settings {
 		bool DrawLines;
 		bool DrawBox;
 		bool DrawName;
-		float Color[2];
+		float Color[3];
 	}
 	namespace Enm {
 		bool DrawLines;
 		bool DrawBox;
 		bool DrawName;
-		float Color[2];
+		float Color[3];
 	}
 }
 
