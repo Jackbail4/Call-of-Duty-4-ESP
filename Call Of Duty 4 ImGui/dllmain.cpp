@@ -101,13 +101,13 @@ HRESULT __stdcall hkEndScene(IDirect3DDevice9* pDevice) {
 	int LocalPlayerId = *(int*)0x1280500;
 	int LocalTeam = *(int*)(0x831270 + LocalPlayerId * 0x4CC + 0x1C);
 
-	for (int i = 0; i < CgInfo->MaxEntities; i++) {
+	for (int i = 0; i < 20; i++) {
 		Ent* Entity = (Ent*)(0x831270 + i * 0x4CC);
 		if (!Entity->Valid) { continue; }
 		ImVec2 HeadPos2D;
 		w2s::WorldToScreen(Vec3{ Entity->Position.x,Entity->Position.y, Entity->Position.z + 65 }, HeadPos2D);
 		ImVec2 Pos2D;
-		w2s::WorldToScreen(Vec3{ Entity->Position.x,Entity->Position.y, Entity->Position.z }, Pos2D);
+		w2s::WorldToScreen(Position, Pos2D);
 		if (Entity->Team == LocalTeam) {
 			if (Settings::Fnd::DrawBox) {
 				Draw::Draw3DBox(Entity->Position, ImColor{ Settings::Fnd::Color[0], Settings::Fnd::Color[1] , Settings::Fnd::Color[2] , 255.f }, Settings::Fnd::Thickness);
